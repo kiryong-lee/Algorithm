@@ -1,6 +1,7 @@
 # you can write to stdout for debugging purposes, e.g.
 # print("this is a debug message")
 
+# https://app.codility.com/demo/results/training3U8BYZ-XCB/
 def solution(N):
     # write your code in Python 3.6
 
