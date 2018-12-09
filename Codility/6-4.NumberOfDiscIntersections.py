@@ -11,6 +11,7 @@ def b_search(start, end, arr, value):
     elif arr[mid][0] > value:
         return b_search(start, mid, arr, value)
     else:
+        # customized binary search. return the last index of same value
         while value == arr[mid][0]:
             mid += 1
             if mid >= len(arr):
@@ -18,7 +19,7 @@ def b_search(start, end, arr, value):
         return mid - 1
 
 def solution(A):
-
+    # get min, max value of each circle
     N = len(A)
     my_list = []
     for i, data in enumerate(A):
@@ -28,8 +29,10 @@ def solution(A):
         max = i + data
         my_list.append([min, max])
 
+    # sort circle
     my_list = sorted(my_list)
 
+    # calcuate count using customized binary search
     count = 0
     for i in range(N):
         pos = b_search(i, N, my_list, my_list[i][1])
