@@ -21,5 +21,5 @@ def solution(A):
         if data > _max:
             _max = data
             _current = data
-    # return max
+    # return max value
     return _max
