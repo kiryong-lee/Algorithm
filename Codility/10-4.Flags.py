@@ -5,24 +5,24 @@
 def solution(A):
     # write your code in Python 3.6
     N = len(A)
-    peek = []
+    peak = []
     for i in range(1, N - 1):
         if A[i] > A[i - 1] and A[i] > A[i + 1]:
-            peek.append(i)
+            peak.append(i)
 
     # T == size of peek array
-    T = len(peek)
+    T = len(peak)
     if T < 3:
         return T
     
     # calculate
     for i in range(2, T + 1):
         count = 1
-        current = peek[0]
+        current = peak[0]
         for j in range(1, T):
-            if peek[j] - current >= i:
+            if peak[j] - current >= i:
                 count += 1
-                current = peek[j]
+                current = peak[j]
                 if count >= i:
                     break
         if count < i:
