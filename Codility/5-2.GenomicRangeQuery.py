@@ -1,55 +1,52 @@
 # you can write to stdout for debugging purposes, e.g.
 # print("this is a debug message")
 
-# https://app.codility.com/demo/results/trainingY3WADW-CZT/
-def b_search(start, end, arr, val):
-    middle = (start + end) // 2
-    if start == middle or end == middle:
-        return middle
-    if arr[middle] < val:
-        return b_search(middle, end, arr, val)
-    elif arr[middle] > val:
-        return b_search(start, middle, arr, val)
-    else:
-        return middle
-
 def solution(S, P, Q):
     # write your code in Python 3.6
-    A, C, G = [], [], []
     N = len(S)
-    for i in range(N):
+    A = [0] * N
+    C = [0] * N
+    G = [0] * N
+    
+    if S[0] == 'A':
+        A[0] = 1
+    elif S[0] == 'C':
+        C[0] = 1
+    elif S[0] == 'G':
+        G[0] = 1
+    
+    for i in range(1, N):
+        A[i] = A[i-1]
+        C[i] = C[i-1]
+        G[i] = G[i-1]
+        
         if S[i] == 'A':
-            A.append(i)
+            A[i] = A[i-1] + 1
         elif S[i] == 'C':
-            C.append(i)
+            C[i] = C[i-1] + 1
         elif S[i] == 'G':
-            G.append(i)
+            G[i] = G[i-1] + 1
 
     M = len(P)
-    ret = [4] * M
-    for i in range(M):
-        if len(A) > 0:
-            _P = b_search(0, len(A), A, P[i])
-            _Q = b_search(0, len(A), A, Q[i])
-            _mid = (_P + _Q) // 2
-            if P[i] <= A[_mid] and A[_mid] <= Q[i]:
-                ret[i] = 1
-                continue
-
-        if len(C) > 0:
-            _P = b_search(0, len(C), C, P[i])
-            _Q = b_search(0, len(C), C, Q[i])
-            _mid = (_P + _Q) // 2
-            if P[i] <= C[_mid] and C[_mid] <= Q[i]:
-                ret[i] = 2
-                continue
-
-        if len(G) > 0:
-            _P = b_search(0, len(G), G, P[i])
-            _Q = b_search(0, len(G), G, Q[i])
-            _mid = (_P + _Q) // 2
-            if P[i] <= G[_mid] and G[_mid] <= Q[i]:
-                ret[i] = 3
-                continue
-
+    ret = []
+    for p, q in zip(P, Q):
+        if p == 0:
+            if A[q] > 0:
+                ret.append(1)
+            elif C[q] > 0:
+                ret.append(2)
+            elif G[q] > 0:
+                ret.append(3)
+            else:
+                ret.append(4)
+        else:
+            minimum = 4
+            if G[q] - G[p-1] != 0:
+                minimum = 3
+            if C[q] - C[p-1] != 0:
+                minimum = 2
+            if A[q] - A[p-1] != 0:
+                minimum = 1
+            ret.append(minimum)
+        
     return ret
