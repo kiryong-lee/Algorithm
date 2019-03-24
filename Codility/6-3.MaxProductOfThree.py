@@ -4,13 +4,12 @@
 # https://app.codility.com/demo/results/training43S6DZ-QCR/
 def solution(A):
     # write your code in Python 3.6
-    B = sorted(A)
+    A.sort()
 
-    if B[-1] < 0 or B[0] > 0: # all minus or all plus
-        return B[-1] * B[-2] * B[-3]
-
-    if B[0] * B[1] > 0:
-        if B[-1] * B[-2] * B[-3] < 0 or B[0] * B[1] > B[-2] * B[-3]:
-            return B[0] * B[1] * B[-1]
-
-    return B[-1] * B[-2] * B[-3]
+    a = A[-1] * A[-2] * A[-3]
+    b = A[0] * A[1] * A[-1]
+    
+    if a > b:
+        return a
+    else:
+        return b
