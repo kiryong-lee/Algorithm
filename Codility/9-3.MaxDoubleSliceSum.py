@@ -1,10 +1,6 @@
 # you can write to stdout for debugging purposes, e.g.
 # print("this is a debug message")
 
-# I don't have idea for this problem
-# I referred this site: https://rafal.io/posts/codility-max-double-slice-sum.html
-# Now I understand this problem, but I don't have confidence to solve similar problems
-
 # https://app.codility.com/demo/results/trainingWJZCC9-B75/
 def solution(A):
     # write your code in Python 3.6
