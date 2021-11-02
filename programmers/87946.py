@@ -11,7 +11,7 @@ def solution(k, dungeons):
             if limit >= dungeon[0]:
                 limit -= dungeon[1]
                 current_clear += 1
-        
+
         if answer < current_clear:
             answer = current_clear
     
