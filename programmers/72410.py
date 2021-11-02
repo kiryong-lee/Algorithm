@@ -22,7 +22,6 @@ def solution(new_id):
     if len(answer) > 15:
         answer = answer[0:15]
     
-    
     if answer[-1] == '.':
         answer = answer[0:-1]
     
