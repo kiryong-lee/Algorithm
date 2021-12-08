@@ -21,4 +21,4 @@ def solution(n, edge):
                 distance[i] = distance[target] + 1
                 
     distance = distance[1:]
-    return distance.count(max(distance))    
+    return distance.count(max(distance))
