@@ -4,5 +4,4 @@ def solution(n):
     while n > 0:
         _sum += n % 10
         n //= 10
-
     return _sum
