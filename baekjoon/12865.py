@@ -1,3 +1,4 @@
+
 N, K = map(int, input().split())
 max_value = [[0] * (K + 1) for i in range(N)]
 for i in range(N):
