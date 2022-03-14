@@ -1,5 +1,5 @@
 
-n = int(input()) % 1500000
+n = int(input())
 
 fibo = [0, 1, 1]
 for i in range(1, n - 1):
