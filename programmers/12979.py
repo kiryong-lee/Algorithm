@@ -13,7 +13,7 @@ def solution(n, stations, w):
         if distance > 0:
             count += math.ceil(distance / interval)
 
-    distance = n - stations[-1] - w
+    distance = n - stations[-1] -  w
     if distance > 0:
         count += math.ceil(distance / interval)
 
